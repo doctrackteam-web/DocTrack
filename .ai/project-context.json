@@ -1,0 +1,35 @@
+{
+  "projectName": "DocTrack",
+  "company": "DocTrack Inc.",
+  "version": "1.0.0",
+  "operatingModel": "Solo-Founder Enterprise SaaS",
+  "targetTTFV": "< 2 minutes",
+  "currentMilestone": "Sprint 1A - Platform Foundation",
+  "activeSprint": "1A",
+  "nextSprint": "1B - Core Document Flow",
+  "architecture": {
+    "pattern": "Modular Monolith",
+    "deployment": "Stateless Serverless / Edge Workers",
+    "primaryDatabase": "PostgreSQL / Managed Free-Tier",
+    "objectStorage": "S3 / Cloudflare R2",
+    "security": "Zero-Trust, AES-256 Encryption at rest, Isolated Sandboxing"
+  },
+  "workspaces": [
+    "apps/web",
+    "apps/docs",
+    "packages/contracts",
+    "packages/security",
+    "packages/testing",
+    "packages/core",
+    "packages/config",
+    "packages/ui"
+  ],
+  "governance": {
+    "constitutionApproved": true,
+    "prdApproved": true,
+    "psfApproved": true,
+    "uxArchitectureApproved": true,
+    "tdsApproved": true,
+    "eesApproved": true
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"pdf-processor.d.ts","sourceRoot":"","sources":["pdf-processor.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,mBAAmB;IAClC,OAAO,EAAE,OAAO,CAAC;IACjB,SAAS,EAAE,MAAM,CAAC;IAClB,WAAW,EAAE,OAAO,CAAC;IACrB,WAAW,CAAC,EAAE,MAAM,CAAC;IACrB,KAAK,CAAC,EAAE,MAAM,CAAC;CAChB;AAED;;;GAGG;AACH,wBAAgB,gBAAgB,CAAC,MAAM,EAAE,MAAM,GAAG,mBAAmB,CAqDpE"}

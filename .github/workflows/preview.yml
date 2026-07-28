@@ -1,0 +1,23 @@
+name: Preview Deployment Pipeline
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  preview:
+    name: Build Preview Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install & Build
+        run: |
+          npm ci
+          npm run build
+      - name: Deployment Preview Notice
+        run: echo "Preview build completed successfully."

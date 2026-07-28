@@ -1,0 +1,40 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  validate:
+    name: Build, Lint & TypeCheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Validate Environment Schema
+        run: npm run check-env
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run TypeScript TypeCheck
+        run: npm run typecheck
+
+      - name: Run Test Suite
+        run: npm run test
+
+      - name: Run Production Monorepo Build
+        run: npm run build

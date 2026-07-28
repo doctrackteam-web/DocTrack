@@ -1,0 +1,23 @@
+{
+  "name": "@doctrack/web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "lint": "tsc --noEmit",
+    "test": "tsx --test src/**/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@doctrack/config": "*",
+    "@doctrack/contracts": "*",
+    "@doctrack/core": "*",
+    "@doctrack/security": "*",
+    "@doctrack/ui": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

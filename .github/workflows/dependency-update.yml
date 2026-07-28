@@ -1,0 +1,16 @@
+name: Dependency Vulnerability Audit
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    name: Audit Vulnerabilities
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Security Check
+        run: npm audit

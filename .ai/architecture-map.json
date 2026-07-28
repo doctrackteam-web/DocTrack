@@ -1,0 +1,46 @@
+{
+  "boundedContexts": {
+    "IdentityContext": {
+      "responsibilities": [
+        "User registration",
+        "Authentication",
+        "Session management",
+        "Password reset"
+      ],
+      "packageDependency": ["packages/security", "packages/contracts", "packages/core"]
+    },
+    "WorkspaceContext": {
+      "responsibilities": ["Single default workspace creation", "Workspace metadata"],
+      "packageDependency": ["packages/contracts", "packages/core"]
+    },
+    "DocumentContext": {
+      "responsibilities": [
+        "PDF Upload",
+        "Direct Storage Pre-signing",
+        "Sandboxed Processing",
+        "Document Metadata"
+      ],
+      "packageDependency": ["packages/contracts", "packages/security", "packages/core"]
+    },
+    "AnalyticsContext": {
+      "responsibilities": [
+        "Page view event ingestion",
+        "Time-series aggregation",
+        "Real-time viewer telemetry"
+      ],
+      "packageDependency": ["packages/contracts", "packages/core"]
+    }
+  },
+  "dependencyGraph": {
+    "apps/web": [
+      "packages/core",
+      "packages/contracts",
+      "packages/security",
+      "packages/ui",
+      "packages/config"
+    ],
+    "packages/core": ["packages/contracts"],
+    "packages/security": ["packages/contracts"],
+    "packages/testing": ["packages/contracts", "packages/core"]
+  }
+}
