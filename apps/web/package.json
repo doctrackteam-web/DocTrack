@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "tsx src/index.ts",
     "lint": "tsc --noEmit",
-    "test": "tsx --test \"src/**/*.test.ts\"",
+    "test": "node ../../scripts/test-runner.js src",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

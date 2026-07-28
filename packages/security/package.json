@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "tsc --noEmit",
-    "test": "tsx --test src/security.test.ts",
+    "test": "node ../../scripts/test-runner.js src",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
