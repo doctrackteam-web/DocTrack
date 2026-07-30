@@ -1,4 +1,4 @@
-import { runDatabaseMigrations, CloudflareR2StorageProvider } from '@doctrack/core';
+import { runDatabaseMigrations, SupabaseStorageProvider } from '@doctrack/core';
 
 export async function GET() {
   const checks = {
@@ -12,8 +12,8 @@ export async function GET() {
     const migrationCheck = runDatabaseMigrations();
     checks.database = migrationCheck.success;
 
-    const r2 = new CloudflareR2StorageProvider();
-    await r2.createPresignedDownloadUrl('ready_check_test');
+    const storage = new SupabaseStorageProvider();
+    await storage.createPresignedDownloadUrl('ready_check_test');
   } catch (err: unknown) {
     checks.storage = false;
   }

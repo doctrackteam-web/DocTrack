@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert';
 import {
   runDatabaseMigrations,
-  CloudflareR2StorageProvider,
+  SupabaseStorageProvider,
   registerUserStore,
   createDocumentStore,
   createSharingLinkStore,
@@ -93,14 +93,14 @@ test('STAGE 1C.1 Binding Verification: Complete E2E Workflow Persistence Across 
   assert.strictEqual(summary.averageReadTimeSeconds, 12);
 });
 
-test('STAGE 1C.1 Binding Verification: Cloudflare R2 Storage & Provider Injection', async () => {
-  const r2 = new CloudflareR2StorageProvider();
+test('STAGE 1C.1 Binding Verification: Supabase Storage & Provider Injection', async () => {
+  const storage = new SupabaseStorageProvider();
   const key = 'contracts/nda.pdf';
   const data = Buffer.from('%PDF-1.4 NDA content');
 
-  const meta = await r2.putObject(key, data, 'application/pdf');
+  const meta = await storage.putObject(key, data, 'application/pdf');
   assert.strictEqual(meta.key, key);
 
-  const downloadUrl = await r2.createPresignedDownloadUrl(key);
-  assert.ok(downloadUrl.includes('cloudflarestorage.com'));
+  const downloadUrl = await storage.createPresignedDownloadUrl(key);
+  assert.ok(downloadUrl.includes('/storage/v1/object/sign/'));
 });

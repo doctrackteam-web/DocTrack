@@ -12,7 +12,7 @@ DocTrack is a secure, enterprise-grade document ingestion, analytics, tracking, 
 ## 🚀 Key Features
 
 - **Identity & Authentication**: Account registration with default workspace auto-provisioning, PBKDF2 (SHA-512 100k) password hashing, rate limiting, and brute-force lockout.
-- **Core Document Engine**: Storage abstraction (`IStorageProvider`) supporting Cloudflare R2 direct browser presigned uploads and sandboxed PDF header inspection (`%PDF-1.x`).
+- **Core Document Engine**: Storage abstraction (`IStorageProvider`) supporting Supabase Storage direct browser presigned uploads and sandboxed PDF header inspection (`%PDF-1.x`).
 - **Secure Link Engine**: Password protection, custom slugs (`/v/:slug`), expiration dates, max view caps, and instant revocation.
 - **Edge Document Viewer & Analytics**: Responsive viewer controller with zoom ($0.5\times \rightarrow 2.0\times$), page navigation, anti-hotlinking headers (`X-Frame-Options: SAMEORIGIN`), and real-time page reading duration analytics.
 - **Organization & Global Search**: Nested folder hierarchy, soft delete/restore, global multi-entity search engine ($p95 < 3.5\text{ms}$), and dashboard metrics.
@@ -29,7 +29,7 @@ DocTrack is a secure, enterprise-grade document ingestion, analytics, tracking, 
         ▼ (HTTPS REST APIs)
 [ apps/web ] ──► (Web Standard Handlers / Node Server)
         │
-        ├──► [ packages/core ] ──► PostgreSQL (Drizzle ORM) + Cloudflare R2
+        ├──► [ packages/core ] ──► PostgreSQL (Drizzle ORM) + Supabase Storage
         ├──► [ packages/security ] ──► PBKDF2 / AES-256-GCM / Rate Limits
         └──► [ packages/contracts ] ──► Zod Schema DTO Contracts
 ```

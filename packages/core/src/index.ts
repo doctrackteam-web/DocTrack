@@ -16,7 +16,7 @@ export * from './db/folder-store.js';
 export * from './db/signature-store.js';
 export * from './db/billing-store.js';
 export * from './storage/storage-provider.js';
-export * from './storage/r2-provider.js';
+export * from './storage/supabase-provider.js';
 export * from './pdf/pdf-processor.js';
 export * from './search/search-engine.js';
 export * from './billing/stripe-driver.js';
